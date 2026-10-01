@@ -1,0 +1,18 @@
+[Unit]
+Description=Protector — PC freeze guard (kills one runaway job when the machine is about to lock up)
+Documentation=file://%h/code/gen/protector/README.md
+After=default.target
+
+[Service]
+Type=simple
+# Build once:  cd service && cargo build --release
+ExecStart=%h/.local/bin/protectord --armed
+# on-failure: a crash or an OOM kill restarts it; "stop" from the UI sticks.
+Restart=on-failure
+RestartSec=5
+# The daemon samples /proc and signals your own processes; it needs no root.
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=default.target
