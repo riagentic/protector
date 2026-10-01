@@ -1,0 +1,20 @@
+[package]
+name = "protectord"
+version = "0.1.0"
+edition = "2021"
+description = "PC stability protector — monitors pressure and kills runaway process trees before the machine freezes"
+license = "MIT"
+
+[[bin]]
+name = "protectord"
+path = "src/main.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tiny_http = "0.12"
+libc = "0.2"
+
+[profile.release]
+opt-level = 2
+codegen-units = 1
