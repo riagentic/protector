@@ -217,3 +217,7 @@ monitor:setMode armed`, `am expect monitor.online eq true`,
 - The policy is data-driven (`config.rs`), and its decision layer (`policy.rs`)
   is unit-tested: ramps, sustain windows, the victim guard, the "CPU alone never
   kills" rule, and harm ranking.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
